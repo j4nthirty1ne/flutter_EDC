@@ -10,9 +10,9 @@ class RecentBillsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        RecentBillsHeader(),
+        const RecentBillsHeader(),
         const SizedBox(height: AppSpacing.lg),
-        RecentBillsCard(),
+        const RecentBillsCard(),
       ],
     );
   }
@@ -44,7 +44,7 @@ class RecentBillsHeader extends StatelessWidget {
             ),
           ],
         ),
-        BillsPeriodSelector(),
+        const BillsPeriodSelector(),
       ],
     );
   }
@@ -108,31 +108,38 @@ class RecentBillsCard extends StatelessWidget {
       padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
-        border: Border.all(color: Colors.grey.shade200),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.grey.shade100),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade200,
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Column(
         children: [
-          RecentBillsCardTitle(),
+          const RecentBillsCardTitle(),
           const SizedBox(height: AppSpacing.lg),
           Divider(height: 1, color: Colors.grey.shade200),
           const SizedBox(height: AppSpacing.lg),
-          InfoRow(
+          const InfoRow(
             label: 'ថ្ងៃធ្វើវិក្កយបត្រ',
             value: '11/02/2026',
           ),
           const SizedBox(height: AppSpacing.md),
-          InfoRow(
+          const InfoRow(
             label: 'ថ្ងៃផុតកំណត់បង់ប្រាក់',
             value: '25/02/2026',
           ),
           const SizedBox(height: AppSpacing.md),
-          InfoRow(
+          const InfoRow(
             label: 'ថាមពលប្រើប្រាស់',
             value: '136 kWh',
           ),
           const SizedBox(height: AppSpacing.md),
-          RecentBillsCardTotal(),
+          const RecentBillsCardTotal(),
         ],
       ),
     );

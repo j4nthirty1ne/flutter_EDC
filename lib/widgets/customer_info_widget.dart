@@ -10,15 +10,15 @@ class CustomerInfoSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomerNameRow(),
+        const CustomerNameRow(),
         const SizedBox(height: AppSpacing.md),
-        CustomerStatusRow(),
+        const CustomerStatusRow(),
         const SizedBox(height: AppSpacing.lg),
-        DigitalBillAndTelegramRow(),
+        const DigitalBillAndTelegramRow(),
         const SizedBox(height: AppSpacing.xl),
-        CustomerIdAndLocationRow(),
+        const CustomerIdAndLocationRow(),
         const SizedBox(height: AppSpacing.md),
-        CustomerAddressWidget(),
+        const CustomerAddressWidget(),
       ],
     );
   }
@@ -35,9 +35,10 @@ class CustomerNameRow extends StatelessWidget {
         const Text(
           'Customer Name (KHR)',
           style: TextStyle(
-            fontSize: AppFontSizes.xxl,
-            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
             color: Colors.black87,
+            letterSpacing: 0.3,
           ),
         ),
         Container(
@@ -168,7 +169,7 @@ class TelegramBadge extends StatelessWidget {
         children: [
           const Icon(
             Icons.telegram,
-            color: Colors.blue,
+            color: AppColors.info,
             size: AppIconSizes.lg,
           ),
           const SizedBox(width: AppSpacing.xs),

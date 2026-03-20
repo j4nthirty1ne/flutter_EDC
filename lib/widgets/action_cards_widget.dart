@@ -11,13 +11,13 @@ class ActionCardsSection extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(AppSpacing.radiusXl),
-        border: Border.all(color: Colors.grey.shade200),
-        boxShadow: const [
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.grey.shade100),
+        boxShadow: [
           BoxShadow(
-            color: Color(0x0D9E9E9E),
-            blurRadius: 10,
-            offset: Offset(0, 4),
+            color: Colors.grey.shade300,
+            blurRadius: 16,
+            offset: const Offset(0, 6),
           ),
         ],
       ),
@@ -59,13 +59,13 @@ class ActionCardsSection extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 1,
-                  child: LinkedAccountsCard(),
+                  child: const LinkedAccountsCard(),
                 ),
               ],
             ),
           ),
           Divider(height: 1, color: Colors.grey.shade200),
-          AutoPayCard(),
+          const AutoPayCard(),
         ],
       ),
     );

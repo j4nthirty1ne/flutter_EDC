@@ -26,7 +26,10 @@ class IconCircleButton extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: color, width: 1.5),
             )
-          : BoxDecoration(shape: BoxShape.circle),
+          : BoxDecoration(
+              shape: BoxShape.circle,
+              color: color.withAlpha(20),
+            ),
       child: IconButton(
         padding: EdgeInsets.zero,
         constraints: const BoxConstraints(),
@@ -218,13 +221,13 @@ class SectionCard extends StatelessWidget {
       padding: padding ?? const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
         color: backgroundColor ?? Colors.white,
-        borderRadius: BorderRadius.circular(AppSpacing.radiusXl),
-        border: Border.all(color: Colors.grey.shade200),
-        boxShadow: const [
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.grey.shade100),
+        boxShadow: [
           BoxShadow(
-            color: Color(0x0D9E9E9E),
-            blurRadius: 10,
-            offset: Offset(0, 4),
+            color: Colors.grey.shade200,
+            blurRadius: 12,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -245,21 +248,38 @@ class DarkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.lg,
-        vertical: AppSpacing.md,
-      ),
-      decoration: BoxDecoration(
-        color: AppColors.primaryDeep,
-        borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: AppFontSizes.md,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.lg,
+          vertical: AppSpacing.md,
+        ),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              AppColors.primaryDeep,
+              AppColors.primaryDark,
+            ],
+          ),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.primaryDeep.withAlpha(51),
+              blurRadius: 12,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Text(
+          label,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: AppFontSizes.md,
+          ),
         ),
       ),
     );

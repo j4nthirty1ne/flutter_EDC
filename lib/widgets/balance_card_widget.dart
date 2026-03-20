@@ -11,17 +11,31 @@ class BalanceCardSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.xl),
       decoration: BoxDecoration(
-        color: AppColors.primaryDeep,
-        borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColors.primaryDeep,
+            AppColors.primaryDark,
+          ],
+        ),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primaryDeep.withAlpha(76),
+            blurRadius: 20,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BalanceCardHeader(),
+          const BalanceCardHeader(),
           const SizedBox(height: AppSpacing.lg),
           const BalanceAmount(),
           const SizedBox(height: AppSpacing.md),
-          BalanceFooter(),
+          const BalanceFooter(),
         ],
       ),
     );
@@ -37,11 +51,15 @@ class BalanceCardHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          padding: const EdgeInsets.all(AppSpacing.xs),
+          padding: const EdgeInsets.all(AppSpacing.md),
+          decoration: BoxDecoration(
+            color: Colors.white.withAlpha(30),
+            borderRadius: BorderRadius.circular(12),
+          ),
           child: const Icon(
             Icons.receipt_long,
             color: Colors.white,
-            size: AppIconSizes.xxl,
+            size: AppIconSizes.lg,
           ),
         ),
         Text(

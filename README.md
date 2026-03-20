@@ -35,10 +35,59 @@ cd flutter_EDC
 flutter pub get
 ```
 
-3. Run the app:
+3. Run the app on your desired platform:
+
+### Running on Different Platforms
+
+#### Web Browser
 ```bash
-flutter run
+# Run on Chrome
+flutter run -d chrome
+
+# Run on Microsoft Edge
+flutter run -d edge
 ```
+
+#### Android Mobile Emulator
+```bash
+# First, launch the emulator
+flutter emulators --launch Medium_Phone_API_36.1
+
+# Then run the app on emulator
+flutter run -d emulator-5554
+```
+
+#### Windows Desktop
+```bash
+flutter run -d windows
+```
+
+#### List All Available Devices
+```bash
+flutter devices
+
+# With extended timeout
+flutter devices --device-timeout 30
+```
+
+#### List and Manage Emulators
+```bash
+# List available emulators
+flutter emulators
+
+# Launch an emulator by ID
+flutter emulators --launch <emulator_id>
+```
+
+#### Run with Additional Options
+```bash
+# Verbose output (for debugging)
+flutter run -d emulator-5554 -v
+
+# With extended device timeout
+flutter run -d emulator-5554 --device-timeout 30
+```
+
 
 ## Project Structure
 
